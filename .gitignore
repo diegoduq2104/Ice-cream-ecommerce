@@ -8,4 +8,4 @@ updraft/
 
 # Opcional: Si tu carpeta de imágenes (uploads) pesa más de 100MB, 
 # descomenta la siguiente línea quitándole el '#' para no subir fotos a Git
-# uploads/
+# uploads/s
