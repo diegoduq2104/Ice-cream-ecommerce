@@ -1,0 +1,11 @@
+# Ignorar archivos basura del sistema
+.DS_Store
+Thumbs.db
+
+# IGNORAR RESPALDOS PESADOS (Vital para que no rebote en GitHub)
+ai1wm-backups/
+updraft/
+
+# Opcional: Si tu carpeta de imágenes (uploads) pesa más de 100MB, 
+# descomenta la siguiente línea quitándole el '#' para no subir fotos a Git
+# uploads/
