@@ -1,0 +1,205 @@
+.scoopl-form-container {
+    font-family: 'Montserrat', sans-serif;
+}
+.scoopl-field-group {
+    margin-bottom: 15px;
+}
+.scoopl-label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.scoopl-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+}
+.scoopl-flex-row {
+    display: flex;
+    gap: 15px;
+}
+.scoopl-flex-col {
+    flex: 1;
+    margin-bottom: 15px;
+}
+.scoopl-help-text {
+    font-size: 12px;
+    color: #666;
+}
+.scoopl-nota-container {
+    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+.scoopl-nota-label {
+    display: block;
+    font-size: 14px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+.scoopl-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    resize: none;
+    font-family: 'Montserrat', sans-serif;
+}
+.scoopl-order-details {
+    clear: both;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+.scoopl-order-title {
+    color: #d06d8a;
+}
+.scoopl-empty-bag {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+}
+.scoopl-lista-productos {
+    font-family: 'Montserrat', sans-serif;
+}
+.scoopl-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.scoopl-item-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.scoopl-item-img {
+    width: 75px;
+    height: 75px;
+    border-radius: 12px;
+    object-fit: contain;
+    background: #FFC2D1;
+}
+.scoopl-item-name {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+}
+.scoopl-item-flavors {
+    margin: 4px 0 0;
+    font-size: 13px;
+    color: #d06d8a;
+    font-weight: 500;
+}
+.scoopl-item-qty {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #999;
+}
+.scoopl-item-price-container {
+    text-align: right;
+}
+.scoopl-item-price {
+    font-weight: 600;
+    font-size: 16px;
+    color: #1a1a1a;
+}
+.scoopl-empty-cart-btn-container {
+    text-align: right;
+    margin-bottom: 15px;
+}
+.scoopl-empty-cart-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #FFF0F3;
+    color: #d06d8a;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #FFC2D1;
+}
+.scoopl-resumen-sidebar {
+    font-family: 'Montserrat', sans-serif;
+}
+.scoopl-resumen-title {
+    font-size: 25px;
+    font-weight: 700;
+}
+.scoopl-resumen-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    font-size: 16px;
+}
+.scoopl-resumen-label {
+    color: #666;
+}
+.scoopl-progress-container {
+    margin: 25px 0;
+}
+.scoopl-progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #666;
+}
+.scoopl-progress-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+.scoopl-resumen-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 700;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+#scoopl-custom-checkout {
+    font-family: 'Montserrat', sans-serif;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+}
+.scoopl-checkout-title {
+    font-size: 20px;
+    font-weight: 700;
+}
+.scoopl-payment-methods {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+}
+.scoopl-payment-details-container {
+    margin-top: 20px;
+}
+.scoopl-payment-ref-label {
+    display: block;
+    font-weight: 700;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.scoopl-payment-ref-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+.scoopl-admin-customer-info {
+    font-size: 11px;
+}
+.scoopl-admin-payment-ref {
+    background: #e5e5e5;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.scoopl-cart-img { width: 100px; height: auto; object-fit: cover; }

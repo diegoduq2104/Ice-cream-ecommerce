@@ -14,12 +14,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'SCOOPL_CORE_PATH', plugin_dir_path( __FILE__ ) );
 
 // Cargamos de forma limpia cada funcionalidad modular
-require_once SCOOPL_CORE_PATH . 'includes/carrito-logica.php';
-require_once SCOOPL_CORE_PATH . 'includes/logica-de-carrito.php';
+require_once SCOOPL_CORE_PATH . 'includes/checkout-campos.php';
+require_once SCOOPL_CORE_PATH . 'includes/ajax-carrito.php';
 require_once SCOOPL_CORE_PATH . 'includes/limites-cantidades.php';
-// Inyectar de forma segura el archivo JavaScript en el Frontend
+// Inyectar de forma segura el archivo JavaScript y CSS en el Frontend
 add_action( 'wp_enqueue_scripts', function() {
     
+    // Cargar los estilos en todo el sitio (o podrías restringirlo si lo prefieres)
+    wp_enqueue_style( 'scoopl-style', plugins_url( 'assets/css/scoopl-style.css', __FILE__ ), array(), '1.0.0' );
+
     // Solo cargamos el script si estamos en la página de Checkout de WooCommerce
     if ( function_exists( 'is_checkout' ) && is_checkout() ) {
         

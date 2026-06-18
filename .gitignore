@@ -1,8 +1,8 @@
 # Ignorar núcleo de WordPress
 wp-admin/
 wp-includes/
-*.php
-!wp-config.php
+/*.php
+!/wp-config.php
 
 # Excepciones obligatorias
 !.gitignore

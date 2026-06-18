@@ -1,0 +1,9 @@
+-- --------------------------------------------------------
+-- Scoopl Ice Cream eCommerce Database Backup (Placeholder)
+-- 
+-- Note for the developer: 
+-- Please replace this placeholder file with your actual database export 
+-- (.sql) containing your WordPress settings, WooCommerce products, 
+-- and Elementor designs. Make sure to remove any sensitive user data 
+-- or real passwords before committing the actual database dump.
+-- --------------------------------------------------------
