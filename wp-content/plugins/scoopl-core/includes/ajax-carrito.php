@@ -89,7 +89,7 @@ function cambiar_imagen_scoopl($thumbnail, $cart_item, $cart_item_key) {
         if ($img_id > 0) {
             $image_array = wp_get_attachment_image_src($img_id, 'woocommerce_thumbnail');
             if ($image_array) {
-                return '<img src="' . esc_url($image_array[0]) . '" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Helado Personalizado" style="width:100px; height:auto; object-fit:cover;">';
+                return '<img src="' . esc_url($image_array[0]) . '" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail scoopl-cart-img" alt="Helado Personalizado">';
             }
         }
     }

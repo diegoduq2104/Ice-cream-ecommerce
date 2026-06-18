@@ -3,31 +3,31 @@
 add_shortcode('campos_pago_scoopl', 'scoopl_campos_cliente_shortcode');
 function scoopl_campos_cliente_shortcode() {
     ob_start(); ?>
-    <div class="scoopl-form-container" style="font-family:'Montserrat', sans-serif;">
+    <div class="scoopl-form-container" >
         <input type="hidden" name="scoopl_metodo_entrega" id="scoopl_metodo_entrega" value="tienda">
 
-        <div style="margin-bottom:15px;">
-            <label style="display:block; font-weight:700; margin-bottom:8px;">¿Quién recogerá el pedido?</label>
+        <div class="scoopl-field-group">
+            <label class="scoopl-label">¿Quién recogerá el pedido?</label>
             <input type="text" name="scoopl_full_name" placeholder="Nombre y apellido completo" 
-                   style="width:100%; padding:15px; border:1px solid #e0e0e0; border-radius:10px;">
+                   class="scoopl-input">
         </div>
 
-        <div style="display: flex; gap: 15px;">
-            <div style="flex: 1; margin-bottom:15px;">
-                <label style="display:block; font-weight:700; margin-bottom:8px;">Cédula</label>
+        <div class="scoopl-flex-row">
+            <div class="scoopl-flex-col">
+                <label class="scoopl-label">Cédula</label>
                 <input type="tel" name="scoopl_cedula" placeholder="Ej: 28123456" 
                        inputmode="numeric" pattern="[0-9]*"
-                       style="width:100%; padding:15px; border:1px solid #e0e0e0; border-radius:10px;">
+                       class="scoopl-input">
             </div>
 
-            <div style="flex: 1; margin-bottom:15px;">
-                <label style="display:block; font-weight:700; margin-bottom:8px;">Teléfono</label>
+            <div class="scoopl-flex-col">
+                <label class="scoopl-label">Teléfono</label>
                 <input type="tel" name="scoopl_phone" placeholder="Ej: 04140000" 
                        inputmode="numeric" pattern="[0-9]*"
-                       style="width:100%; padding:15px; border:1px solid #e0e0e0; border-radius:10px;">
+                       class="scoopl-input">
             </div>
         </div>
-        <p style="font-size:12px; color:#666;">* Estos campos son obligatorios para la entrega.</p>
+        <p class="scoopl-help-text">* Estos campos son obligatorios para la entrega.</p>
     </div>
 
     <script>
@@ -50,12 +50,12 @@ function scoopl_campos_cliente_shortcode() {
 add_shortcode('nota_bolso_scoopl', 'scoopl_nota_bolso_shortcode');
 function scoopl_nota_bolso_shortcode() {
     ob_start(); ?>
-    <div class="scoopl-nota-container" style="margin-top:20px; font-family:'Montserrat', sans-serif;">
-        <label style="display:block; font-size:14px; color:#000000; margin-bottom:10px;">
+    <div class="scoopl-nota-container" >
+        <label class="scoopl-nota-label">
             ¿Pides para alguien especial? ¡Añade una nota personal para poner en la caja!
         </label>
         <textarea name="scoopl_order_note" placeholder="Nota (opcional)" rows="2" maxlength="150"
-                  style="width: 100%; box-sizing: border-box; display: block; padding: 10px; border: 1px solid #e0e0e0; border-radius: 10px; resize: none; font-family: 'Montserrat', sans-serif;"></textarea>
+                  class="scoopl-textarea"></textarea>
     </div>
     <?php
     return ob_get_clean();
@@ -93,8 +93,8 @@ function scoopl_mostrar_datos_admin($order){
         'Nota Especial'      => get_post_meta($id, '_scoopl_customer_note', true),
     ];
 
-    echo '<div style="clear:both; margin-top:20px; padding-top:10px; border-top:1px solid #eee;">';
-    echo '<h4 style="color:#d06d8a;">Detalles Scoopl</h4>';
+    echo '<div class="scoopl-order-details">';
+    echo '<h4 class="scoopl-order-title">Detalles Scoopl</h4>';
     foreach($datos as $label => $valor) {
         if($valor) echo '<p><strong>'.$label.':</strong> '.esc_html($valor).'</p>';
     }
@@ -105,7 +105,7 @@ function scoopl_mostrar_datos_admin($order){
 add_shortcode('lista_bolso_scoopl', 'scoopl_render_lista_bolso');
 function scoopl_render_lista_bolso() {
     if ( WC()->cart->is_empty() ) {
-        return '<p style="text-align:center; color:#999; padding:20px;">Tu bolso está vacío.</p>';
+        return '<p class="scoopl-empty-bag">Tu bolso está vacío.</p>';
     }
     ob_start();
     echo '<div class="scoopl-lista-productos" style="font-family:\'Montserrat\', sans-serif;">';
@@ -127,17 +127,17 @@ function scoopl_render_lista_bolso() {
         if (empty($url_imagen)) $url_imagen = wp_get_attachment_url($_product->get_image_id());
         if (empty($url_imagen)) $url_imagen = wc_placeholder_img_src();
         ?>
-        <div class="scoopl-item" style="display: flex; align-items: center; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #f0f0f0;">
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <img src="<?php echo esc_url($url_imagen); ?>" style="width: 75px; height: 75px; border-radius: 12px; object-fit: contain; background: #FFC2D1;">
+        <div class="scoopl-item" >
+            <div class="scoopl-item-info">
+                <img src="<?php echo esc_url($url_imagen); ?>" class="scoopl-item-img">
                 <div>
-                    <h5 style="margin: 0; font-size: 16px; font-weight: 600; color: #000;"><?php echo esc_html($nombre_mostrar); ?></h5>
-                    <p style="margin: 4px 0 0; font-size: 13px; color: #d06d8a; font-weight: 500;"><?php echo esc_html($sabores); ?></p>
-                    <span style="display: block; margin-top: 6px; font-size: 12px; color: #999;">Cantidad: <?php echo $cart_item['quantity']; ?></span>
+                    <h5 class="scoopl-item-name"><?php echo esc_html($nombre_mostrar); ?></h5>
+                    <p class="scoopl-item-flavors"><?php echo esc_html($sabores); ?></p>
+                    <span class="scoopl-item-qty">Cantidad: <?php echo $cart_item['quantity']; ?></span>
                 </div>
             </div>
-            <div style="text-align: right;">
-                <span style="font-weight: 600; font-size: 16px; color: #1a1a1a;"><?php echo $item_price; ?></span>
+            <div class="scoopl-item-price-container">
+                <span class="scoopl-item-price"><?php echo $item_price; ?></span>
             </div>
         </div>
         <?php
@@ -158,7 +158,7 @@ function scoopl_vaciar_carrito_custom() {
 add_shortcode('boton_vaciar_scoopl', function() {
     if ( WC()->cart->is_empty() ) return '';
     $url = add_query_arg('vaciar_bolso', 'si');
-    return '<div style="text-align: right; margin-bottom: 15px;"><a href="'.esc_url($url).'" style="display: inline-block; padding: 8px 16px; background: #FFF0F3; color: #d06d8a; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600; border: 1px solid #FFC2D1;">🗑️ Vaciar bolsa</a></div>';
+    return '<div class="scoopl-empty-cart-btn-container"><a href="'.esc_url($url).'" class="scoopl-empty-cart-btn">🗑️ Vaciar bolsa</a></div>';
 });
 
 /* ---------------------------------------------------------------- SESIÓN 7-8: PROPINAS */
@@ -180,25 +180,25 @@ add_shortcode('resumen_pago_scoopl', function() {
     if ( !WC()->cart ) return;
     $propina_actual = WC()->session->get( 'scoopl_tip_amount' ) ?: 0;
     ob_start(); ?>
-    <div class="scoopl-resumen-sidebar" style="font-family:'Montserrat', sans-serif;">
-        <h3 style="font-size: 25px; font-weight: 700;">Detalles del pedido</h3>
-        <div style="display:flex; justify-content:space-between; margin: 15px 0; font-size: 16px;">
-            <span style="color: #666;">Subtotal</span>
+    <div class="scoopl-resumen-sidebar" >
+        <h3 class="scoopl-resumen-title">Detalles del pedido</h3>
+        <div class="scoopl-resumen-row">
+            <span class="scoopl-resumen-label">Subtotal</span>
             <strong><?php echo WC()->cart->get_cart_subtotal(); ?></strong>
         </div>
-        <div style="margin: 25px 0;">
-            <div style="display:flex; justify-content:space-between; margin-bottom: 12px; font-size: 14px; color: #666;">
+        <div class="scoopl-progress-container">
+            <div class="scoopl-progress-header">
                 <span>Propina</span>
                 <strong><?php echo ($propina_actual > 0) ? '$' . number_format($propina_actual, 2) : '$0,00'; ?></strong>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+            <div class="scoopl-progress-bar">
                 <?php foreach([2, 3, 5] as $m): ?>
                     <button type="button" class="tip-btn <?php echo ($propina_actual == $m) ? 'active' : ''; ?>" onclick="setTip(<?php echo $m; ?>)">$<?php echo $m; ?></button>
                 <?php endforeach; ?>
                 <button type="button" class="tip-btn" onclick="setTip(0)">Otros</button>
             </div>
         </div>
-        <div style="display:flex; justify-content:space-between; font-size: 20px; font-weight: 700; border-top: 1px solid #eee; padding-top: 20px;">
+        <div class="scoopl-resumen-total">
             <span>Total</span>
             <span><?php echo WC()->cart->get_total(); ?></span>
         </div>
@@ -237,9 +237,9 @@ add_action( 'plugins_loaded', function(){
 });
 
 function scoopl_render_metodos_pago_html() { ?>
-    <div id="scoopl-custom-checkout" style="font-family:'Montserrat',sans-serif; background: #fff; padding: 20px; border-radius: 15px;">
-        <h3 style="font-size: 20px; font-weight: 700;">Método de pago 💳</h3>
-        <div style="display: flex; gap: 10px; margin: 15px 0;">
+    <div id="scoopl-custom-checkout" class="scoopl-custom-checkout">
+        <h3 class="scoopl-checkout-title">Método de pago 💳</h3>
+        <div class="scoopl-payment-methods">
             <div onclick="selPay('pm')" class="pay-tab active" id="t-pm">Pago Móvil</div>
             <div onclick="selPay('bc')" class="pay-tab" id="t-bc">Bancolombia</div>
             <div onclick="selPay('bn')" class="pay-tab" id="t-bn">Binance</div>
@@ -247,9 +247,9 @@ function scoopl_render_metodos_pago_html() { ?>
         <div id="d-pm" class="pay-details" style="display:block;"><strong>Banco:</strong> Venezuela (0102)<br><strong>Tel:</strong> 0414-7000000<br><strong>CI:</strong> V-12.345.678</div>
         <div id="d-bc" class="pay-details" style="display:none;"><strong>Ahorros:</strong> 123-456789-00<br><strong>Titular:</strong> Scoopl</div>
         <div id="d-bn" class="pay-details" style="display:none;"><strong>ID:</strong> 556677889<br><strong>Email:</strong> pagos@scoopl.com</div>
-        <div style="margin-top:20px;">
-            <label style="display:block; font-weight:700; font-size:12px; margin-bottom:5px;">REFERENCIA DE PAGO</label>
-            <input type="text" name="scoopl_payment_ref" placeholder="Ej: 123456" style="width:100%; padding:12px; border-radius:8px; border:1px solid #ddd;">
+        <div class="scoopl-payment-details-container">
+            <label class="scoopl-payment-ref-label">REFERENCIA DE PAGO</label>
+            <input type="text" name="scoopl_payment_ref" placeholder="Ej: 123456" class="scoopl-payment-ref-input">
         </div>
     </div>
     <script>
@@ -303,10 +303,10 @@ add_filter( 'manage_edit-shop_order_columns', function($columns) {
 
 add_action( 'manage_shop_order_posts_custom_column', function($col, $post_id) {
     if ( $col === 'scoopl_info' ) {
-        echo '<div style="font-size:11px;"><strong>CI:</strong> '.get_post_meta($post_id, '_scoopl_cedula', true).'<br><strong>Tel:</strong> '.get_post_meta($post_id, '_scoopl_phone', true).'</div>';
+        echo '<div class="scoopl-admin-customer-info"><strong>CI:</strong> '.get_post_meta($post_id, '_scoopl_cedula', true).'<br><strong>Tel:</strong> '.get_post_meta($post_id, '_scoopl_phone', true).'</div>';
     }
     if ( $col === 'scoopl_ref' ) {
-        echo '<mark style="background:#e5e5e5; padding:5px; border-radius:5px; font-weight:bold;">'.get_post_meta($post_id, '_scoopl_payment_ref', true).'</mark>';
+        echo '<mark class="scoopl-admin-payment-ref">'.get_post_meta($post_id, '_scoopl_payment_ref', true).'</mark>';
     }
 }, 10, 2 );
 
