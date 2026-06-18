@@ -1,7 +1,7 @@
 # 🍦 Scoopl - Ice Cream eCommerce
 ¡Bienvenido a Scoopl! El portal definitivo para personalizar tus helados favoritos. Esto no es solo otro sitio de comercio electrónico; es una muestra de código modular, lógica de carrito personalizada y una interfaz dinámica construida sobre WordPress.
 
-✨ [**¡Preciosa AQUI para verlo en directo!**](https://www.semana.tumarcaagencia.com/) ✨
+✨ [**¡Preciona AQUI para verlo en directo!**](https://www.semana.tumarcaagencia.com/) ✨
 
 https://github.com/user-attachments/assets/dfb037f7-bb93-422d-b903-0b3fe853d40a
 
