@@ -1,0 +1,19 @@
+# Ignorar núcleo de WordPress
+wp-admin/
+wp-includes/
+*.php
+!wp-config.php
+
+# Excepciones obligatorias
+!.gitignore
+!README.md
+
+# Ignorar contenido de terceros
+wp-content/*
+!wp-content/themes/
+!wp-content/plugins/
+
+# Ignorar plugins específicos
+wp-content/plugins/elementor/
+wp-content/plugins/woocommerce/
+wp-content/plugins/code-snippets/
